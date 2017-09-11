@@ -57,9 +57,11 @@ echo -e "\n--- psql - create database $DBNAME ---\n"
 sudo -u postgres psql postgres -c "create database $DBNAME --locale=en_US.utf8 with encoding='UTF8';" > /dev/null 2>&1
 sudo -u postgres psql postgres -c "grant all privileges on database $DBNAME to $DBUSER;" > /dev/null 2>&1
 
-
 echo -e "\n--- Installing PHP-specific packages ---\n"
-apt-get -y install php7.1 apache2 libapache2-mod-php7.1 php7.1-mbstring php7.1-curl php7.1-intl php7.1-gd php7.1-mcrypt php7.1-pgsql php7.1-zip php7.1-xdebug
+apt-get -y install php7.1 apache2 libapache2-mod-php7.1 php7.1-mbstring php7.1-curl php7.1-intl php7.1-gd php7.1-mcrypt php7.1-pgsql php7.1-zip
+
+echo -e "\n--- Installing xdebug php package ---\n"
+apt-get -y install php7.1-xdebug > /dev/null 2>&1
 
 echo -e "\n--- Add environment variables ---\n"
 cat > /etc/environment <<EOF
@@ -97,7 +99,6 @@ EOF
 
 echo -e "\n--- Enabling mod-rewrite ---\n"
 a2enmod rewrite
-
 
 echo -e "\n--- Setting web root to public directory ---\n"
 rm -rf /var/www

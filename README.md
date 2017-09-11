@@ -1,212 +1,77 @@
-<p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Yii 2 Basic Project Template</h1>
-    <br>
-</p>
+#Description
+Test exercise for Creditstar Group
+
+#1 Setup.
+Setting up is easy. You need Vagrant with VirtualBox to setup the virtual machine locally. 
+* VirtualBox https://www.virtualbox.org/wiki/Downloads 
+* Vagrant https://www.vagrantup.com/downloads.html
+
+Once finished open up terminal and go to the project root.
+
+To build your virtual machine run $ vagrant up . The script might ask you for your GitHub login credentials to download dependencies via API. Alternatively you can add your github API token to bootstrap.sh file after GITHUB_TOKEN.
+
+Once vagrant has finished with the setup your dev environment should be all set up. You can now access web server at: http://192.168.50.10/ . If those mappings don't suit you, you can Modify the Vagrantfile.
+
+#2 Database
+
+The database consists of two tables created for you 'loan' and 'user. Each User can have multiple Loans. Each loan must have a User.
+
+#3 Assignment
+
+You need to create a webapp that provides
+
+* viewing, adding, editing and removing Loans and Users in the database ( form validation ).
+http://www.yiiframework.com/doc-2.0/guide-start-forms.html
+http://www.yiiframework.com/doc-2.0/guide-input-forms.html
+
+* Listing out all the Loans and Users (pagination, filtering and sorting). -> http://www.yiiframework.com/doc-2.0/guide-output-pagination.html | http://www.yiiframework.com/doc-2.0/guide-output-sorting.html
+
+* There are two Json files in the root folder of the project ( users.json and loans.json ) with predefined loans and users. You must import that data into the database programmatically. For example create a script that imports the file or use a migration -> http://www.yiiframework.com/doc-2.0/guide-db-migrations.html
+
+* Write a method to get user age from user personal code. All supplied personal codes are in Estonian personal code format: https://en.wikipedia.org/wiki/National_identification_number#Estonia
+Display user age in user view.
+
+* Style of the page should be based on recruitment.png file that is included with the project under root.
+
+Use Bootstrap available functionalities as much as you can. Bonus for responsiveness ( rather mandatory ) and SCSS usage.
+
+Font used -> http://font.ubuntu.com/
+
+* Write a test case to test if your user age calculation method returns correct age and test if user is allowed to apply for a loan (user is not underage).
+
+* Once the assignment is done upload to a public git repository (github, bitbucket)
+
+# Evaluation Criteria
+
+* Is every feature working.
+* Use as much Yii2 built in features. For layout use Bootstrap which comes with Yii2 OOTB ( feel free to use Foundation 6 instead of Bootstrap)
+* MVC usage. Using models ( keyword here is Yii's built in tool Gii for creating them from database tables), views and controllers correctly.
+http://www.yiiframework.com/doc-2.0/ext-gii-index.html
+http://www.yiiframework.com/doc-2.0/guide-structure-overview.html
+* Code legibility.
+* Git usage. How commits are created and commented. We want to see the process of the work.
+* Finished code should be possible to deploy and run the same way as described in: #1 Setup.
+
+Relevant tools/helpful links:
+Vagrant - https://www.vagrantup.com/downloads.html
+Virtualbox(OSX) - http://download.virtualbox.org/virtualbox/4.3.28/VirtualBox-4.3.28-100309-OSX.dmg
+( for windwos please go to http://download.virtualbox.org )
+Github_token for bootstrap.sh - https://github.com/settings/tokens
+
+After vagrant setup:
+Database link - http://localhost:8080/phppgadmin/
+Page link â€“ http://localhost:8080/web/
+
+When doubts or questions arise feel free to contact: helari.laurent@creditstargroup.com
+
+
+
+Yii 2 Basic Project Template
+============================
 
 Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 rapidly creating small projects.
 
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
-
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
-
-DIRECTORY STRUCTURE
--------------------
-
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
-
-
-
-REQUIREMENTS
-------------
-
-The minimum requirement by this project template that your Web server supports PHP 5.4.0.
-
-
-INSTALLATION
-------------
-
-### Install via Composer
-
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
-
-You can then install this project template using the following command:
-
-~~~
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
-~~~
-
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
-
-~~~
-http://localhost/basic/web/
-~~~
-
-
-### Install from an Archive File
-
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
-
-Set cookie validation key in `config/web.php` file to some random secret string:
-
-```php
-'request' => [
-    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-    'cookieValidationKey' => '<secret random string goes here>',
-],
-```
-
-You can then access the application through the following URL:
-
-~~~
-http://localhost/basic/web/
-~~~
-
-
-CONFIGURATION
--------------
-
-### Database
-
-Edit the file `config/db.php` with real data, for example:
-
-```php
-return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
-];
-```
-
-**NOTES:**
-- Yii won't create the database for you, this has to be done manually before you can access it.
-- Check and edit the other files in the `config/` directory to customize your application as required.
-- Refer to the README in the `tests` directory for information specific to basic application tests.
-
-
-
-TESTING
--------
-
-Tests are located in `tests` directory. They are developed with [Codeception PHP Testing Framework](http://codeception.com/).
-By default there are 3 test suites:
-
-- `unit`
-- `functional`
-- `acceptance`
-
-Tests can be executed by running
-
-```
-vendor/bin/codecept run
-```
-
-The command above will execute unit and functional tests. Unit tests are testing the system components, while functional
-tests are for testing user interaction. Acceptance tests are disabled by default as they require additional setup since
-they perform testing in real browser. 
-
-
-### Running  acceptance tests
-
-To execute acceptance tests do the following:  
-
-1. Rename `tests/acceptance.suite.yml.example` to `tests/acceptance.suite.yml` to enable suite configuration
-
-2. Replace `codeception/base` package in `composer.json` with `codeception/codeception` to install full featured
-   version of Codeception
-
-3. Update dependencies with Composer 
-
-    ```
-    composer update  
-    ```
-
-4. Download [Selenium Server](http://www.seleniumhq.org/download/) and launch it:
-
-    ```
-    java -jar ~/selenium-server-standalone-x.xx.x.jar
-    ```
-
-    In case of using Selenium Server 3.0 with Firefox browser since v48 or Google Chrome since v53 you must download [GeckoDriver](https://github.com/mozilla/geckodriver/releases) or [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) and launch Selenium with it:
-
-    ```
-    # for Firefox
-    java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-3.xx.x.jar
-    
-    # for Google Chrome
-    java -jar -Dwebdriver.chrome.driver=~/chromedriver ~/selenium-server-standalone-3.xx.x.jar
-    ``` 
-    
-    As an alternative way you can use already configured Docker container with older versions of Selenium and Firefox:
-    
-    ```
-    docker run --net=host selenium/standalone-firefox:2.53.0
-    ```
-
-5. (Optional) Create `yii2_basic_tests` database and update it by applying migrations if you have them.
-
-   ```
-   tests/bin/yii migrate
-   ```
-
-   The database configuration can be found at `config/test_db.php`.
-
-
-6. Start web server:
-
-    ```
-    tests/bin/yii serve
-    ```
-
-7. Now you can run all available tests
-
-   ```
-   # run all available tests
-   vendor/bin/codecept run
-
-   # run acceptance tests
-   vendor/bin/codecept run acceptance
-
-   # run only unit and functional tests
-   vendor/bin/codecept run unit,functional
-   ```
-
-### Code coverage support
-
-By default, code coverage is disabled in `codeception.yml` configuration file, you should uncomment needed rows to be able
-to collect code coverage. You can run your tests and collect coverage with the following command:
-
-```
-#collect coverage for all tests
-vendor/bin/codecept run -- --coverage-html --coverage-xml
-
-#collect coverage only for unit tests
-vendor/bin/codecept run unit -- --coverage-html --coverage-xml
-
-#collect coverage for unit and functional tests
-vendor/bin/codecept run functional,unit -- --coverage-html --coverage-xml
-```
-
-You can see code coverage output under the `tests/_output` directory.
+More about Yii:
+* https://github.com/yiisoft/yii2
+* http://www.yiiframework.com/doc-2.0/guide-index.html
