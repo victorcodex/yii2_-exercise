@@ -43,7 +43,7 @@ class m170911_093407_setup extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('Users');
-        $this->dropTable('Loans');
+        $this->dropTable('user');
+        $this->dropTable('loan');
     }
 }
