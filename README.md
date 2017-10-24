@@ -1,7 +1,8 @@
 #Description
 Test exercise for Creditstar Group
 
-As a very first shortlisting procedure of candidates, we have set up a test exercise that the interested applicants are executing. 
+As a very first shortlisting procedure of candidates, we have set up a test exercise that the interested applicants are executing.  
+
 We assume that interested applicants would be able to complete the test within few days. Once test is completed please forward the results to <kadriann@creditstar.com>.
 
 #1 Setup.
@@ -63,7 +64,7 @@ Github_token for bootstrap.sh - https://github.com/settings/tokens
 
 After vagrant setup:
 Database link - http://localhost:8080/phppgadmin/
-Page link – http://localhost:8080/web/
+Page link - http://localhost:8080/web/
 
 Should any technical questions arise feel free to contact: <helari.laurent@creditstar.com>
 
