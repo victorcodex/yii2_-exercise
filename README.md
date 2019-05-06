@@ -39,36 +39,36 @@ The database consists of two tables created for you ```loan``` and ```user```. E
 
 You need to create a webapp that provides:
 
-* Viewing, adding, editing and removing Loans and Users in the database. User's input must be validated.
+1. Viewing, adding, editing and removing Loans and Users in the database. User's input must be validated.
 
-    https://www.yiiframework.com/doc/guide/2.0/en/start-forms
-    https://www.yiiframework.com/doc/guide/2.0/en/input-forms
+   * https://www.yiiframework.com/doc/guide/2.0/en/start-forms
+   * https://www.yiiframework.com/doc/guide/2.0/en/input-forms
 
-* Listing out all the Loans and Users (pagination, filtering, and sorting).
+2. Listing out all the Loans and Users (pagination, filtering, and sorting).
     
-    https://www.yiiframework.com/doc/guide/2.0/en/output-data-providers
-    https://www.yiiframework.com/doc/guide/2.0/en/output-data-widgets
+   * https://www.yiiframework.com/doc/guide/2.0/en/output-data-providers
+   * https://www.yiiframework.com/doc/guide/2.0/en/output-data-widgets
 
-* There are two JSON files in the root folder of the project ( users.json and loans.json ) with predefined loans and users. 
+3. There are two JSON files in the root folder of the project ( users.json and loans.json ) with predefined loans and users. 
 
-    You must import that data into the database programmatically. For example, create a [console script](https://www.yiiframework.com/doc/guide/2.0/en/tutorial-console) that imports the file or use a [migration](https://www.yiiframework.com/doc/guide/2.0/en/db-migrations)
+   You must import that data into the database programmatically. For example, create a [console script](https://www.yiiframework.com/doc/guide/2.0/en/tutorial-console) that imports the file or use a [migration](https://www.yiiframework.com/doc/guide/2.0/en/db-migrations)
 
-* Write a method to get user age from user personal code. 
+4. Write a method to get user age from user personal code. 
     
-    All supplied personal codes are in [Estonian personal code format](https://en.wikipedia.org/wiki/National_identification_number#Estonia).
-    Display user age in user view.
+   All supplied personal codes are in [Estonian personal code format](https://en.wikipedia.org/wiki/National_identification_number#Estonia).
+   Display user age in user view.
 
-* Style of the page should be based on ```recruitment.png``` file that is included with the project under root.
+5. Style of the page should be based on ```recruitment.png``` file that is included with the project under root.
 
     Use Bootstrap available functionalities as much as you can. Bonus for responsiveness ( rather mandatory ) and SCSS usage. (Ubuntu font)[http://font.ubuntu.com/] should be used.
 
-* Write a test case to test if your user age calculation method returns correct age and test if user is allowed to apply for a loan (user is not underage).
+6. Write a test case to test if your user age calculation method returns correct age and test if user is allowed to apply for a loan (user is not underage).
 
     Run this command to execute tests:
 
         docker-compose run --rm php codecept run
     
-* Once the assignment is done upload to a public git repository (github, bitbucket)
+**Once the assignment is done upload to a public git repository (github, bitbucket)**
 
 ## Evaluation Criteria
 
@@ -77,8 +77,9 @@ You need to create a webapp that provides:
 * MVC usage
 * Using models ( keyword here is Yii's built-in tool Gii for creating them from database tables), views and controllers correctly.
     
-    http://www.yiiframework.com/doc-2.0/ext-gii-index.html
-    http://www.yiiframework.com/doc-2.0/guide-structure-overview.html
+    * http://www.yiiframework.com/doc-2.0/ext-gii-index.html
+    * http://www.yiiframework.com/doc-2.0/guide-structure-overview.html
+    
 * Code legibility
 * Git usage. How commits are created and commented. We want to see the process of the work
 * Finished code should be possible to deploy and run the same way as described in Setup section
