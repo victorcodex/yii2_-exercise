@@ -15,14 +15,14 @@ class m170911_093407_setup extends Migration
     {
         $this->createTable('user', [
             'id' => Schema::TYPE_PK,
-            'first_name' => Schema::TYPE_TEXT . ' NOT NULL',
-            'last_name' => Schema::TYPE_TEXT . ' NOT NULL',
-            'email' => Schema::TYPE_TEXT . ' NOT NULL',
+            'first_name' => Schema::TYPE_STRING . ' NOT NULL',
+            'last_name' => Schema::TYPE_STRING . ' NOT NULL',
+            'email' => Schema::TYPE_STRING . ' NOT NULL',
             'personal_code' => Schema::TYPE_BIGINT . ' NOT NULL',
             'phone' => Schema::TYPE_BIGINT . ' NOT NULL',
             'active' => Schema::TYPE_BOOLEAN,
             'dead' => Schema::TYPE_BOOLEAN,
-            'lang' => Schema::TYPE_TEXT
+            'lang' => Schema::TYPE_STRING
         ]);
 
         $this->createTable('loan', [
@@ -36,6 +36,8 @@ class m170911_093407_setup extends Migration
             'campaign' => Schema::TYPE_INTEGER . ' NOT NULL',
             'status' => Schema::TYPE_BOOLEAN
         ]);
+
+        $this->addForeignKey('user_loan_fk', 'loan', 'user_id', 'user', 'id', 'CASCADE', 'RESTRICT');
     }
 
     /**
@@ -43,6 +45,7 @@ class m170911_093407_setup extends Migration
      */
     public function safeDown()
     {
+        $this->dropForeignKey('user_loan_fk', 'loan');
         $this->dropTable('user');
         $this->dropTable('loan');
     }
