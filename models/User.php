@@ -117,4 +117,9 @@ class User extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Loan::class, ['userId' => 'id']);
     }
+
+    public function getFullName()
+    {
+        return sprintf('%s %s', $this->first_name, $this->last_name);
+    }
 }

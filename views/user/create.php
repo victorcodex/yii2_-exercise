@@ -12,6 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="user-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <div class="striped-border"></div>
 
     <?= $this->render('_form', [
         'model' => $model,

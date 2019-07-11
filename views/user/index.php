@@ -14,35 +14,35 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <div class="striped-border"></div>
     <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create User', ['create'], ['class' => 'btn']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'first_name:ntext',
-            'last_name:ntext',
-            [
-                'attribute' => 'age',
-                'label' => 'Age',
-                'format' => 'integer',
+    <div class="table-responsive">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'tableOptions' => ['class' => 'table'],
+            'columns' => [
+                'id',
+                'first_name:ntext',
+                'last_name:ntext',
+                [
+                    'attribute' => 'age',
+                    'label' => 'Age',
+                    'format' => 'integer',
+                ],
+                'email:ntext',
+                'personal_code',
+                //'phone',
+                'active:boolean',
+                //'dead:boolean',
+                //'lang:ntext',
+                ['class' => 'yii\grid\ActionColumn'],
             ],
-            'email:ntext',
-            'personal_code',
-            //'phone',
-            'active:boolean',
-            //'dead:boolean',
-            //'lang:ntext',
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
-
+        ]); ?>
+    </div>
 </div>

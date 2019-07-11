@@ -32,7 +32,7 @@ AppAsset::register($this);
         'brandLabel' => 'My Company',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-inverse',
         ],
     ]);
     echo Nav::widget([
@@ -59,11 +59,35 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+        <div class="row">
+            <div class="col col-lg-3 col-md-4 hidden-xs">CREDIT STAR</div>
+            <div class="col col-lg-9 col-md-8 col-xl-12">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+            </div>
+        </div>
+    </div>
+    <?php
+    NavBar::begin([
+        'options' => [
+            'class' => 'navbar-gray',
+        ],
+    ]);
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-left'],
+        'items' => [
+            ['label' => 'Users', 'url' => ['/user']],
+            ['label' => 'Loans', 'url' => ['/loan']],
+        ],
+    ]);
+    NavBar::end();
+    ?>
+    <div class="container">
+    <?= Alert::widget() ?>
+        <div class="main-content">
+            <?= $content ?>
+        </div>
     </div>
 </div>
 

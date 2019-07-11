@@ -13,6 +13,7 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="user-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <div class="striped-border"></div>
 
     <?= $this->render('_form', [
         'model' => $model,

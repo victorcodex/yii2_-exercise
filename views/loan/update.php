@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 <div class="loan-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <div class="striped-border"></div>
 
     <?= $this->render('_form', [
         'model' => $model,
