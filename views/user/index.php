@@ -29,6 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'first_name:ntext',
             'last_name:ntext',
+            [
+                'attribute' => 'age',
+                'label' => 'Age',
+                'format' => 'integer',
+            ],
             'email:ntext',
             'personal_code',
             //'phone',

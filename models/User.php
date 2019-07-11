@@ -22,7 +22,11 @@ use Yii;
  */
 class User extends \yii\db\ActiveRecord
 {
+    /** @var integer */
     private $age;
+
+    /** @var \DateTime */
+    private $birthDate;
 
     /**
      * {@inheritdoc}
@@ -66,6 +70,8 @@ class User extends \yii\db\ActiveRecord
     }
 
     /**
+     * Calculates age by personal code
+     *
      * @return int
      */
     public function getAge()
@@ -74,17 +80,34 @@ class User extends \yii\db\ActiveRecord
             return $this->age;
         }
 
-        $birthDateString = sprintf(
-            '%s-%s-%s',
-            substr($this->personal_code, 1, 2),
-            substr($this->personal_code, 3, 2),
-            substr($this->personal_code, 5, 2)
-        );
-        $birthDate = new \DateTime($birthDateString);
-
-        $this->age = $birthDate->diff(new \DateTime())->y;
+        $this->age = $this->getBirthDate()->diff(new \DateTime())->y;
 
         return $this->age;
+    }
+
+    /**
+     * Calculate birth date by personal code
+     *
+     * @return \DateTime
+     */
+    public function getBirthDate()
+    {
+        if ($this->birthDate) {
+            return $this->birthDate;
+        }
+
+        $centuryCode = substr($this->personal_code, 0, 1);
+        if ($centuryCode < 3) {
+            $century = 19;
+        } elseif ($centuryCode < 5) {
+            $century = 20;
+        } else {
+            $century = 21;
+        }
+
+        $this->birthDate = new \DateTime(($century - 1) . substr($this->personal_code, 1, 6));
+
+        return $this->birthDate;
     }
 
     /**
