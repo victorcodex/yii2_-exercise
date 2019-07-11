@@ -30,7 +30,7 @@ shell:
 	docker-compose -f $(COMPOSE_FILES) exec --user=www-data php bash
 
 shell-as-root:
-	docker-compose -f $(COMPOSE_FILES) exec api bash
+	docker-compose -f $(COMPOSE_FILES) exec php bash
 
 provision:
 	docker-compose -f $(COMPOSE_FILES) exec -T php sed -i 's/www-data:x:33:33/www-data:x:$(USER_ID):$(USER_ID)/g' /etc/passwd
