@@ -10,6 +10,11 @@ Once the test is completed please forward the results to <it.career@creditstar.c
 
 Install Docker https://www.docker.com/get-started
 
+## Simple way:
+```
+make up provision
+```
+## or
 Update your vendor packages
 
     docker-compose run --rm php composer update --prefer-dist
