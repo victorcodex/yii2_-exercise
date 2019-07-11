@@ -38,7 +38,7 @@ class Loan extends \yii\db\ActiveRecord
             [['user_id', 'amount', 'interest', 'duration', 'start_date', 'end_date', 'campaign'], 'required'],
             [['user_id', 'duration', 'campaign'], 'integer'],
             [['amount', 'interest'], 'number'],
-            [['start_date', 'end_date'], 'safe'],
+            [['start_date', 'end_date'], 'date', 'format'=>'yyyy-M-d'],
             [['status'], 'boolean'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
