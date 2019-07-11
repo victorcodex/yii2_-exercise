@@ -1,42 +1,31 @@
 <?php
 namespace tests\models;
+
 use app\models\User;
 
 class UserTest extends \Codeception\Test\Unit
 {
-    public function testFindUserById()
-    {
-        expect_that($user = User::findIdentity(100));
-        expect($user->username)->equals('admin');
-
-        expect_not(User::findIdentity(999));
-    }
-
-    public function testFindUserByAccessToken()
-    {
-        expect_that($user = User::findIdentityByAccessToken('100-token'));
-        expect($user->username)->equals('admin');
-
-        expect_not(User::findIdentityByAccessToken('non-existing'));        
-    }
-
-    public function testFindUserByUsername()
-    {
-        expect_that($user = User::findByUsername('admin'));
-        expect_not(User::findByUsername('not-admin'));
-    }
-
     /**
-     * @depends testFindUserByUsername
+     * @dataProvider personalCodeProvider
+     *
+     * @param string  $personalCode
+     * @param integer $age
      */
-    public function testValidateUser($user)
+    public function testUserAge($personalCode, $age)
     {
-        $user = User::findByUsername('admin');
-        expect_that($user->validateAuthKey('test100key'));
-        expect_not($user->validateAuthKey('test102key'));
+        $user = new User();
+        $user->personal_code = $personalCode;
 
-        expect_that($user->validatePassword('admin'));
-        expect_not($user->validatePassword('123456'));        
+        $this->assertEquals($age, $user->getAge());
+        $this->assertEquals($age >= 18 , $user->isAllowedToApplyLoan());
     }
 
+    public function personalCodeProvider()
+    {
+        return [
+            ['49005025465', (new \DateTime('1990-05-02'))->diff(new \DateTime('now'))->y],
+            ['36609050333', (new \DateTime('1966-09-05'))->diff(new \DateTime('now'))->y],
+            ['50905025465', (new \DateTime('2009-05-02'))->diff(new \DateTime('now'))->y],
+        ];
+    }
 }
