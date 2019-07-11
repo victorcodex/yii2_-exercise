@@ -41,6 +41,11 @@ class Loan extends \yii\db\ActiveRecord
             [['start_date', 'end_date'], 'date', 'format'=>'yyyy-M-d'],
             [['status'], 'boolean'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
+            ['user_id', function ($attribute, $params, $validator) {
+                if (!$this->user->isAllowedToApplyLoan()) {
+                    $this->addError($attribute, 'The user must be more than 18.');
+                }
+            }]
         ];
     }
 

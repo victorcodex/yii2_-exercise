@@ -111,6 +111,16 @@ class User extends \yii\db\ActiveRecord
     }
 
     /**
+     * Check if this user is allow to apply for loan
+     *
+     * @return bool
+     */
+    public function isAllowedToApplyLoan()
+    {
+        return $this->getAge() >= 18;
+    }
+
+    /**
      * @return \yii\db\ActiveQuery
      */
     public function getLoans()
