@@ -19,6 +19,13 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'sass' => [
+            // Path to the SassHandler class
+            'class' => '\danxill\sass\SassHandler',
+            // Enable Compass support, defaults to false
+            'enableCompass' => true,
+            'sassCompiledPath' => __DIR__.'/../web/css/',
+        ],
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,

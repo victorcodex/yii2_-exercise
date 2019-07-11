@@ -4,8 +4,43 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be4417a3e4d7f0bbe3588921c64993a2",
+    "content-hash": "0dcfb7709b220be81809c590abaf7775",
     "packages": [
+        {
+            "name": "artem-frolov/scssphp-compass",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/artem-frolov/scssphp-compass.git",
+                "reference": "ff482797277b69672e67d417a9ef8d599cdabb91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artem-frolov/scssphp-compass/zipball/ff482797277b69672e67d417a9ef8d599cdabb91",
+                "reference": "ff482797277b69672e67d417a9ef8d599cdabb91",
+                "shasum": ""
+            },
+            "require": {
+                "leafo/scssphp": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "compass.inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Leaf Corcoran",
+                    "email": "leafot@gmail.com",
+                    "homepage": "http://leafo.net"
+                }
+            ],
+            "description": "Compass for scssphp",
+            "homepage": "http://leafo.net/scssphp/",
+            "time": "2015-02-20T15:53:05+00:00"
+        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.4.1",
@@ -161,6 +196,49 @@
                 "markdown-extra"
             ],
             "time": "2018-03-26T11:24:36+00:00"
+        },
+        {
+            "name": "danxill/yii2-sass",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DanxilL/yii2-sass.git",
+                "reference": "945fd4ffa4a4b843823439afaa5f70f2fd857404"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DanxilL/yii2-sass/zipball/945fd4ffa4a4b843823439afaa5f70f2fd857404",
+                "reference": "945fd4ffa4a4b843823439afaa5f70f2fd857404",
+                "shasum": ""
+            },
+            "require": {
+                "artem-frolov/scssphp-compass": "0.1.*",
+                "leafo/scssphp": "*",
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "danxill\\sass\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitriy Bulgar",
+                    "email": "danxills@gmail.com"
+                }
+            ],
+            "description": "compiles sass assets",
+            "keywords": [
+                "extension",
+                "sass",
+                "yii2"
+            ],
+            "time": "2018-03-23T15:38:15+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -325,6 +403,60 @@
                 "html"
             ],
             "time": "2018-02-23T01:58:20+00:00"
+        },
+        {
+            "name": "leafo/scssphp",
+            "version": "v0.8.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leafo/scssphp.git",
+                "reference": "b9cdea3e42c3bcb1a9faafd04ccce4e8ec860ad9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leafo/scssphp/zipball/b9cdea3e42c3bcb1a9faafd04ccce4e8ec860ad9",
+                "reference": "b9cdea3e42c3bcb1a9faafd04ccce4e8ec860ad9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4.0 || ^7"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.6",
+                "squizlabs/php_codesniffer": "~2.5",
+                "twbs/bootstrap": "~4.3",
+                "zurb/foundation": "~6.5"
+            },
+            "bin": [
+                "bin/pscss"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Leafo\\ScssPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Leaf Corcoran",
+                    "email": "leafot@gmail.com",
+                    "homepage": "http://leafo.net"
+                }
+            ],
+            "description": "scssphp is a compiler for SCSS written in PHP.",
+            "homepage": "http://leafo.github.io/scssphp/",
+            "keywords": [
+                "css",
+                "less",
+                "sass",
+                "scss",
+                "stylesheet"
+            ],
+            "time": "2019-06-18T21:15:44+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3729,9 +3861,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.4.0"

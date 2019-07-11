@@ -7,6 +7,7 @@
 
 namespace app\assets;
 
+use Yii;
 use yii\web\AssetBundle;
 
 /**
@@ -18,7 +19,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'css/style.scss',
     ];
     public $js = [
     ];
@@ -26,4 +27,10 @@ class AppAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
+
+    public function init()
+    {
+        parent::init();
+        $this->css = Yii::$app->sass->publishAndGetPathArray($this->css,Yii::getAlias($this->baseUrl));
+    }
 }

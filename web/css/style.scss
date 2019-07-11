@@ -1,0 +1,155 @@
+@import "compass";
+
+$border-color: #eee;
+$text-color: #666;
+
+$btn-color: rgb(180,180,180);
+$btn-color-warning: rgb(255,220,0);
+$btn-color-danger: rgb(255,20,0);
+$btn-color-success: rgb(0, 209, 11);
+$btn-color-info: rgb(57, 167, 209);
+
+html, body {
+    font-family: Ubuntu;
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.breadcrumb {
+    padding: 0;
+    background: none;
+}
+.navbar-gray {
+    background: #eee;
+    li > a {
+        color: $text-color;
+        font-size: large;
+        font-width: bold;
+
+        &:hover {
+            background: none;
+            color: darken($text-color, 30%);
+        }
+    }
+    @include box-shadow(0px 4px 2px 0 #ccc inset);
+}
+.striped-border {
+    height: 15px;
+    background-color: #fff;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        height: 9px;
+        width: 100%;
+        background: #eee;
+        @include background(repeating-linear-gradient(
+            -45deg,
+            #eee,
+            #eee 4px,
+            transparent 5px,
+            transparent 6px
+        ));
+        backface-visibility: hidden;
+    }
+}
+
+@mixin button-background($color) {
+    background: $color;
+    @include background(linear-gradient(180deg, $color 0%, darken($color, 15%) 100%));
+
+    &:hover {
+        border-color: white;
+        background: white;
+        color: $color;
+    }
+}
+.btn {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+    padding: 10px 20px;
+    border: 3px solid white;
+    @include border-radius(45px);
+    @include box-shadow(0 1px 4px 0px #ccc);
+    @include button-background($btn-color);
+    margin: 3px
+}
+.btn-warning{
+    @include button-background($btn-color-warning);
+}
+.btn-danger{
+    @include button-background($btn-color-danger);
+}
+.btn-success{
+    @include button-background($btn-color-success);
+}
+.btn-info{
+    @include button-background($btn-color-info);
+}
+
+.navbar-inverse {
+    background-color: black;
+}
+
+.main-content {
+    padding: 3%;
+    border: solid 2px $border-color;
+}
+
+.table {
+    border-color: $border-color;
+    th, td, a {
+        color: $text-color;
+    }
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
