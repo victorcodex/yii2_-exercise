@@ -65,10 +65,18 @@ class UserSearch extends User
             'dead' => $this->dead,
         ]);
 
-        $query->andFilterWhere(['ilike', 'first_name', $this->first_name])
-            ->andFilterWhere(['ilike', 'last_name', $this->last_name])
-            ->andFilterWhere(['ilike', 'email', $this->email])
-            ->andFilterWhere(['ilike', 'lang', $this->lang]);
+        // grid filtering conditions - prepare %Like% query
+        $search_first_name="'%".str_replace(" ","%",$this->first_name)."%'";
+        $search_last_name="'%".str_replace(" ","%",$this->last_name)."%'";
+        $search_email="'%".str_replace(" ","%",$this->email)."%'";
+        $search_lang="'%".str_replace(" ","%",$this->lang)."%'";
+
+        // grid filtering conditions - execute prepared %Like% query
+        $query
+            ->andWhere('first_name like '.$search_first_name)
+            ->andWhere('last_name like '.$search_last_name)
+            ->andWhere('email like '.$search_email)
+            ->andWhere('lang like '.$search_lang);
 
         return $dataProvider;
     }

@@ -19,6 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="striped-border"></div>
 
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <div class="table-responsive">
