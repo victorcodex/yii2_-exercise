@@ -26,13 +26,21 @@ Run the installation triggers (creating cookie validation code)
 Start the container
 
     docker-compose up -d
+
+Make modification to the database parameters under;
+
+    config/db.php 
     
 Run database migration (creating tables)
 
     docker-compose run --rm php yii migrate    
-    docker-compose run --rm php tests/bin/yii migrate    
-        
-You can then access the application through the following URL:
+    docker-compose run --rm php tests/bin/yii migrate  
+      
+Seed database tables with loans.json and users.json data
+
+    php yii import
+            
+You can then access the application through the following URL or php yii serve:
 
     http://127.0.0.1:8000
 
