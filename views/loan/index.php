@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
+/* @var $searchModel app\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Loans');
@@ -21,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="table-responsive">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
         'tableOptions' => ['class' => 'table'],
         'columns' => [
             'id',
@@ -28,6 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'user',
                 'label' => 'User',
                 'value' => 'user.fullName',
+                'filterInputOptions' => [
+                    'class'       => 'form-control',
+                    'placeholder' => 'Search by first name'
+                ]
             ],
             'user_id',
             'amount',

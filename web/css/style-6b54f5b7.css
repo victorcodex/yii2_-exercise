@@ -2,6 +2,11 @@ html, body {
   font-family: Ubuntu;
   height: 100%; }
 
+.summary {
+  float: right;
+  margin-bottom: 15px;
+  margin-top: 15px; }
+
 .user-age-badge {
   background: #c70f00; }
 

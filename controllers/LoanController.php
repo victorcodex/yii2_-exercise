@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\LoanSearch;
 use Yii;
 use app\models\Loan;
 use yii\data\ActiveDataProvider;
@@ -35,11 +36,11 @@ class LoanController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Loan::find(),
-        ]);
+        $searchModel = new LoanSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
