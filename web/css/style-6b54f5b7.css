@@ -2,6 +2,9 @@ html, body {
   font-family: Ubuntu;
   height: 100%; }
 
+.active-link {
+  color: #000 !important; }
+
 .summary {
   float: right;
   margin-bottom: 15px;

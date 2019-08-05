@@ -88,9 +88,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-left'],
         'items' => [
-            ['label' => 'My actions', 'url' => ['/my_actions']],
-            ['label' => 'Users', 'url' => ['/user']],
-            ['label' => 'Loans', 'url' => ['/loan']],
+            ['label' => 'My actions', 'url' => ['/myactions'], 'linkOptions' => ['class' => Yii::$app->controller->id == 'myactions' ? 'active-link' : '']],
+            ['label' => 'Users', 'url' => ['/user'], 'linkOptions' => ['class' => Yii::$app->controller->id == 'user' ? 'active-link' : '']],
+            ['label' => 'Loans', 'url' => ['/loan'], 'linkOptions' => ['class' => Yii::$app->controller->id == 'loan' ? 'active-link' : '']],
         ],
     ]);
     NavBar::end();
