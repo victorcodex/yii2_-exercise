@@ -27,45 +27,56 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse',
         ],
     ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
+    echo "
+       <div class='navbar-left navbar-left-items'>
+            <span>Klienditeenindus</span>
+            <span><i class='glyphicon glyphicon-stop'></i> 1715</span>
+            <span><i class='glyphicon glyphicon-globe'></i> E-P 9.00-21.00</span>
+        </div>
+    ";
+    echo "
+       <div class='navbar-right navbar-right-items'>
+            <span>Tere, Kaupo kasutaja</span>
+            <button class='btn'> Log out <i class='glyphicon glyphicon-log-out'></i></button>
+        </div>
+    ";
     NavBar::end();
     ?>
 
     <div class="container">
         <div class="row">
-            <div class="col col-lg-3 col-md-4 hidden-xs">CREDIT STAR</div>
-            <div class="col col-lg-9 col-md-8 col-xl-12">
-                <?= Breadcrumbs::widget([
-                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                ]) ?>
+
+            <div class="col col-md-4 col-xs-5 site-logo">
+                <a href="https://www.creditstar.com/">
+                    <span>CREDIT</span>
+                    <span>STAR</span>
+                </a>
             </div>
+
+            <div class="col col-md-4 col-xs-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="https://www.creditstar.com/" title="CreditStar home page">Home</a></li>
+                        <li class="breadcrumb-item"><a href="https://www.creditstar.com/about" title="About CreditStar">About</a></li>
+                        <li class="breadcrumb-item"><a href="https://www.creditstar.com/careers" title="Career at CreditStar">Careers</a></li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="col col-md-4 col-xs-2">
+                <div class="no-pyc pull-right">
+                    No-pycckn
+                </div>
+            </div>
+
+
         </div>
     </div>
     <?php
@@ -77,6 +88,7 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-left'],
         'items' => [
+            ['label' => 'My actions', 'url' => ['/my_actions']],
             ['label' => 'Users', 'url' => ['/user']],
             ['label' => 'Loans', 'url' => ['/loan']],
         ],

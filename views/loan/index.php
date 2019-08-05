@@ -11,12 +11,12 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="loan-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <div class="striped-border"></div>
+    <div class="section-header-panel">
+        <div class="pull-left"><h1><?= Html::encode($this->title) ?></h1></div>
+        <div class="pull-right"><?= Html::a(Yii::t('app', 'Create Loan'), ['create'], ['class' => 'btn btn-success pull-right']) ?></div>
+    </div>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Loan'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <div class="striped-border"></div>
 
     <div class="table-responsive">
     <?= GridView::widget([

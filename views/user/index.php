@@ -12,12 +12,12 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="section-header-panel">
+        <div class="pull-left"><h1><?= Html::encode($this->title) ?></h1></div>
+        <div class="pull-right"><?= Html::a('Create User', ['create'], ['class' => 'btn btn-success pull-right']) ?></div>
+    </div>
 
     <div class="striped-border"></div>
-    <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn']) ?>
-    </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
